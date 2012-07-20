@@ -1,0 +1,79 @@
+
+* { font-family:"Helvetica Neue", Helvetica, clean, sans-serif; }
+
+body
+{
+	font-size:1em;
+	line-height:1.5em;
+}
+
+.show
+{
+	xdisplay:list-item;
+	visibility:visible;
+}
+.hide
+{
+	xdisplay:none;
+	visibility:hidden;
+}
+
+* {
+    font-family: helvetica,clean,sans-serif;
+}
+table {
+    caption-side: bottom;
+    margin: 1em;
+    width:350px;
+}
+table, table th, table td {
+    background-color: white;
+    border: 1px solid #AAAAAA;
+    border-collapse: collapse;
+}
+
+
+#hexN-3,
+#hexN-4
+{
+	float:left;
+	margin:-8em 1em 1em 1em;
+}
+#hexN-1,
+#hexN-0
+{
+	margin:-8em 1em 1em 47em;
+}
+#hexN-2,
+#hexN-5,
+#hex10-10
+{
+	margin:-8em 1em 1em 24em;
+}
+#hexN-5
+{
+	margin-top:1em;
+}
+
+#map-frame
+{
+	border:#5E2612 5px dashed;
+	height:320px;
+	width:640px;
+}
+
+
+
+
+
+
+
+
+.mxt
+{
+	border:red thin solid;
+	color:pink;
+}
+
+
+/* eof: hexmap.css */

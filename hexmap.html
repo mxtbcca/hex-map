@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+
+	<meta name="keywords" content=" 'HTML', 'CSS', 'javascript' "/>
+
+	<meta name="description" content="Demo code for Michael Thorne" />
+	<meta content="all" name="robots"/>
+	<meta content="width=987" name="viewport"/>
+
+	<link rel="stylesheet" type="text/css" media="screen" href="css/hexmap.css">
+
+	<script type="text/javascript" src="js/modernizr.js"></script>	<!-- http://www.modernizr.com -->
+	<title>Hex Map</title>
+</head>
+<body>
+	<h1>Hex Map</h1>
+
+	<div id="test-results"></div>
+
+
+</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/hexmap.js"></script>
+
+	<script type="text/javascript">
+	
+		var testDON = $("#test-results");
+
+		function render(table, testDON)
+		{
+		}
+		function buildTable(x, y, points)
+		{
+			var str;
+	
+			str = '';
+			str += '<table border="1" cellspacing="0" cellpadding="4" id="hex'+ x + "-" + y+'">';
+			str += '<thead><tr>';
+			str += '<th id="apexId">id</th>';
+			str += '<th id="apexX">x</th>';
+			str += '<th id="apexY">y</th>';
+			str += '</tr></thead><tbody>';
+
+			var cip;
+			for (cip = 0; cip < 6; cip++)
+			{
+				str += "<tr>";
+				str += "<td>" + cip + "</td>";
+				str += "<td>" + points[cip].x + "</td>";
+				str += "<td>" + points[cip].y + "</td>";
+				str += "</tr>";
+			}
+			str += "</tbody><caption>hex(" + x + ", " + y +")</caption></table>";
+
+			return str;
+		}
+	
+		var hexMap = new HexMap();
+
+		var test  = hexMap.getApexPoints({x: 10, y: 10});
+		var next  = hexMap.getStepPoints({x: 10, y: 10});
+		var next0 = hexMap.getApexPoints(next[0]);
+		var next1 = hexMap.getApexPoints(next[1]);
+		var next2 = hexMap.getApexPoints(next[2]);
+		var next3 = hexMap.getApexPoints(next[3]);
+		var next4 = hexMap.getApexPoints(next[4]);
+		var next5 = hexMap.getApexPoints(next[5]);
+
+		var testTable  = buildTable(10, 10, test);
+		var next0Table = buildTable("N", 0, next0);
+		var next1Table = buildTable("N", 1, next1);
+		var next2Table = buildTable("N", 2, next2);
+		var next3Table = buildTable("N", 3, next3);
+		var next4Table = buildTable("N", 4, next4);
+		var next5Table = buildTable("N", 5, next5);
+		
+		testDON.html(
+			next5Table + 
+			next4Table +
+			next0Table +
+			testTable  +
+			next3Table +
+			next1Table +
+			next2Table
+		);
+		
+		console.log("done");
+
+	</script>
+</html>
